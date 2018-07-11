@@ -27,7 +27,10 @@ public class LoginTest extends Util {
             Alert alert = wait.until(ExpectedConditions.alertIsPresent());
             Assert.assertTrue(alert.getText().contains(data.get("alerttext")));
             alert.accept();
-        } catch (TimeoutException Ex){
+        } catch (TimeoutException Ex) {
+
+            String innerText = driver.findElement(By.xpath("//tr[@class='heading3']/td")).getAttribute("innerText");
+            Assert.assertTrue(innerText.contains(data.get("login")));
 
         } finally {
             Assert.assertEquals(driver.getTitle(), data.get("title"));
@@ -36,6 +39,27 @@ public class LoginTest extends Util {
 
     }
 
+    /*@Test(dataProviderClass = Utilities.class, dataProvider = "LoginCredProvider")
+    public void loginTest2(String login, String password) {
 
 
+        driver.findElement(By.xpath("//input[@name='uid']")).sendKeys(login);
+        driver.findElement(By.xpath("//input[@name='password']")).sendKeys(password);
+        driver.findElement(By.xpath("//input[@type='submit']")).click();
+
+        try {
+            Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+            // Assert.assertTrue(alert.getText().contains(data.get("alerttext")));
+            alert.accept();
+        } catch (TimeoutException Ex) {
+
+            String innerText = driver.findElement(By.xpath("//tr[@class='heading3']/td")).getAttribute("innerText");
+            Assert.assertTrue(innerText.contains(login));
+
+        } finally {
+            //Assert.assertEquals(driver.getTitle(), data.get("title"));
+        }
+
+
+    }*/
 }
