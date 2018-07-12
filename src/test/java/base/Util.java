@@ -17,9 +17,9 @@ public class Util {
     public static WebDriverWait wait;
 
     public static final String testsiteurl = "http://www.demo.guru99.com/V4/";
-    public static final String login = "mngr140669";
+    /*public static final String login = "mngr140669";
     public static final String password = "tynYquj";
-    public static final String firefoxLocation = "\\src\\test\\resources\\exec\\geckodriver.exe";
+    public static final String firefoxLocation = "\\src\\test\\resources\\exec\\geckodriver.exe";*/
 
     public static ExcelReader excel = new ExcelReader(System.getProperty("user.dir")+ "\\src\\test\\resources\\excel\\testdata.xlsx");
 

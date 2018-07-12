@@ -10,6 +10,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import utilities.Utilities;
 
+import java.io.IOException;
 import java.util.Hashtable;
 
 public class LoginTest extends Util {
@@ -31,6 +32,11 @@ public class LoginTest extends Util {
 
             String innerText = driver.findElement(By.xpath("//tr[@class='heading3']/td")).getAttribute("innerText");
             Assert.assertTrue(innerText.contains(data.get("login")));
+            try {
+                Utilities.captureScreenshot();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
         } finally {
             Assert.assertEquals(driver.getTitle(), data.get("title"));
